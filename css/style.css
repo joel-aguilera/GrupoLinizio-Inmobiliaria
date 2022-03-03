@@ -1,0 +1,421 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing:border-box;    
+}
+
+/*Grid Padre */
+
+/*BODY*/
+
+body {
+    background-color: black; 
+}
+.gridarea {
+    width: auto;
+    height: 100vh;
+    margin: 0% auto;
+    display: grid; 
+    grid-template-areas: 
+   "encabezado encabezado"
+   "menu menu"
+   "contenido publicidad"
+   "contenido publicidad"
+   "pie pie";
+    grid-template-columns: auto;
+    grid-template-rows: 80px 27vh auto 200px auto auto;
+    justify-items: center;
+    align-items: center;
+}
+/*Grid hijos*/ 
+
+/*HEADER*/
+header { 
+    background-color: red;
+    grid-area: encabezado;
+   /* height: 8vh;*/
+    display: flex;
+    align-items: center;
+   
+}
+header h1 {
+    color: white;
+    font-style: italic;
+    font-weight: bold; 
+}
+
+/*NAV*/
+nav {
+    grid-area: menu;
+    width: 100%;
+    position: sticky;
+    top: 0%;
+    z-index: 2;
+    background-image: url("../img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}  
+.redes {
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.redes li {
+    width: 4%;
+}
+.facebook {
+    color: blue;
+    font-size: 40px;
+}
+.whatsapp {
+    color: green;
+    font-size: 40px;
+}
+.twitter {
+    color: cornflowerblue;
+    font-size: 40px;
+}
+.logo {
+   height: 10vh;
+   display: flex;
+   align-items: center;
+
+}
+.logo img {
+    width: 80px;
+    height: 80px;
+    margin-left: 16px;
+}
+.navBarra {
+    text-align: center; 
+    list-style-type: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+}
+nav li {
+    width: 16%;  
+}
+nav li:hover {
+    background-color: red;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+}
+nav form {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+nav form input {
+ height: 35px;
+ border-radius: 10px; 
+ }
+
+/*MAIN*/
+main {
+    grid-area: contenido;
+    /*height: 100vh;*/
+}
+.subtitle {
+    background-image: linear-gradient(to right, #f5f5f5, #000 );
+    padding-left: 240px;
+}
+main h2 {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-style: italic;
+}
+.container {
+    margin-top: 20px;
+    height: 52vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.caja {
+    width: 400px;
+}
+.caja img {
+    width: 100%;
+    height: auto;
+   
+}
+
+
+.txt {
+    font-style: italic;
+    text-align: center;
+    font-size: 20px;
+}
+
+.importante {
+    display: flex;
+    justify-content: center;
+    margin-left: 30vh;
+    color: white;
+    font-style: italic;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+}
+/*grid basico*/
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 80px 120px;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    display: flex;
+    row-gap: nowrap;
+}
+
+.grid div {
+    border: solid 1px tomato;
+}
+
+main p {
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    margin-top: 30px;
+    font-size: 20px;
+
+}
+.formulario {
+    color: white;
+    font-style: italic;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*grid tabla*/ 
+.gridtabla {
+    margin-top: 10px;
+    display: grid;
+    height: 300px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 2fr);
+    row-gap: 10px;
+    column-gap: 5px;
+}
+.gridtabla div {
+    background-color: rgb(0, 162, 255);
+}
+
+/*ASIDE*/
+
+aside {
+    /*height: 5vh;*/
+    grid-area: publicidad;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.publicidad {
+    color: white;
+    font-style: italic;
+}
+/*SECTION*/ 
+section {
+    grid-area: textos;
+    background-color: aquamarine;
+}
+
+/*FOOTER*/
+
+footer {
+    grid-area: pie;
+    background-color: red;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    bottom: 0%;
+   
+}
+.creditos {
+    color: white;
+    font-style: italic;
+}
+
+
+/*Desktop*/ 
+@media screen and (max-width: 1200px) {
+    .facebook {
+        font-size: 30px;
+    }
+    .whatsapp {
+        font-size: 30px;
+    }
+    .twitter {
+        font-size: 30px;
+    }
+    .container {
+        height: auto;
+    }
+    .gridarea {
+        background-color: #72cef2;
+    }
+    .gridareaHeader {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 32px;
+    } 
+    .subtitle {
+        margin-right: 200px;
+    }
+}
+/*Laptop*/
+@media screen and (max-width: 1024px) {
+    .gridareaHeader { 
+        font-size: 42px;
+        margin-top: 55px;
+        margin-bottom: 20px;
+     }
+    .facebook {
+        font-size: 30px;
+    }
+    .whatsapp {
+        font-size: 30px;
+    }
+    .twitter {
+        font-size: 30px;
+    }
+    .container {
+        height: auto;
+    }
+    .gridarea {
+        background-color: #f26764;
+    }
+    .subtitle {
+        margin-right: 200px;
+    }
+    
+     .importante {
+       
+        margin-right: 200px;
+     }
+
+    }
+  
+
+/*Tablet*/
+@media screen and (max-width: 768px) {
+    .gridareaHeader {
+        margin-top: 10px;
+        margin-bottom: 42px;
+        font-size: 19px;
+    }
+    .redes li {
+        width: 8%;
+    }
+    .facebook {
+        font-size: 40px;
+    }
+    .whatsapp {
+        font-size: 40px;
+    }
+    .twitter {
+        font-size: 40px;
+    }
+    .navBarra {
+        flex-direction: column;
+    }
+    .container {
+        height: auto;
+    }
+    .gridarea {
+        background-color: #f2dc99;
+    }
+    
+    .subtitle {
+        margin-top: 40px;
+        margin-left: 50px;
+        margin-right: 140px;
+        font-size: 30px;
+     }
+     main p {
+         font-size: 30px;
+     }
+     .creditos {
+         font-size: 30px;
+     }
+   }
+/*Mobile*/ 
+@media screen and (max-width: 480px) {
+    .gridareaHeader {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: 50px;
+    }
+    .redes {
+        display: flex;
+        justify-content: end;
+        margin-right: 100px;
+
+      
+    }
+    .redes li {
+        width: 14%;
+    }
+    .facebook {
+        font-size: 40px;
+    }
+    .whatsapp {
+        font-size: 40px;
+    }
+    .twitter {
+        font-size: 40px;
+    }
+    .navBarra {
+        font-size: 30px;
+    }
+    nav form {
+    margin-right: 20px;
+    }
+    nav form input {
+        height: 50px;
+        width: 300px;
+     
+    }
+    .container {
+        height: auto;
+    }
+    .gridarea {
+        background-color: green;
+        grid-template-columns: 1fr;
+         grid-template-rows: 1fr;
+    }
+    
+    .subtitle {
+        margin-right: 120px;
+        font-size: 30px;
+    }
+    .txt {
+        font-size: 30px;
+    }
+    .importante {
+       padding-right: 200px;
+   }
+   .publicidad {
+       font-size: 20px;
+   }
+   .creditos {
+       font-size: 25px;
+   }
+}
