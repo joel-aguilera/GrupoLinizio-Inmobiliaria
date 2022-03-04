@@ -8,10 +8,8 @@
 
 /*BODY*/
 
-body {
-    background-color: black; 
-}
-.gridarea {
+#gridarea {
+    background-color: #000;
     width: auto;
     height: 100vh;
     margin: 0% auto;
@@ -135,7 +133,7 @@ main h2 {
     color: white;
     font-style: italic;
 }
-.container {
+.contenedor {
     margin-top: 20px;
     height: 52vh;
     display: flex;
@@ -265,10 +263,10 @@ footer {
     .twitter {
         font-size: 30px;
     }
-    .container {
+    .contenedor {
         height: auto;
     }
-    .gridarea {
+    #gridarea {
         background-color: #72cef2;
     }
     .gridareaHeader {
@@ -285,7 +283,7 @@ footer {
     .gridareaHeader { 
         font-size: 42px;
         margin-top: 55px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
      }
     .facebook {
         font-size: 30px;
@@ -296,10 +294,10 @@ footer {
     .twitter {
         font-size: 30px;
     }
-    .container {
+    .contenedor {
         height: auto;
     }
-    .gridarea {
+    #gridarea {
         background-color: #f26764;
     }
     .subtitle {
@@ -321,6 +319,7 @@ footer {
         margin-bottom: 42px;
         font-size: 19px;
     }
+ 
     .redes li {
         width: 8%;
     }
@@ -336,18 +335,18 @@ footer {
     .navBarra {
         flex-direction: column;
     }
-    .container {
+    .contenedor {
         height: auto;
     }
-    .gridarea {
+    #gridarea {
         background-color: #f2dc99;
     }
     
     .subtitle {
-        margin-top: 40px;
+        margin-top: 45px;
         margin-left: 50px;
         margin-right: 140px;
-        font-size: 30px;
+        font-size: 25px;
      }
      main p {
          font-size: 30px;
@@ -393,10 +392,10 @@ footer {
         width: 300px;
      
     }
-    .container {
+    .contenedor {
         height: auto;
     }
-    .gridarea {
+    #gridarea {
         background-color: green;
         grid-template-columns: 1fr;
          grid-template-rows: 1fr;
