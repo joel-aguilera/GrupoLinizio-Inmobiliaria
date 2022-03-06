@@ -1,6 +1,6 @@
 @import "_header";
 @import "_footer";
-
+$blanco: #fff; 
 *{
     margin: 0%;
     padding: 0%;
@@ -113,7 +113,7 @@ main {
         margin-top: 8px;
         display: flex;
         justify-content: center;
-        color: white;
+        color: $blanco;
         font-style: italic;
     }
     .contenedor {
@@ -170,7 +170,7 @@ main {
         display: flex;
         justify-content: center;
         margin-left: 30vh;
-        color: white;
+        color: $blanco;
         font-style: italic;
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 40px;
@@ -192,7 +192,7 @@ main {
 p {
     justify-content: center;
     align-items: center;
-    color: white; 
+    color: $blanco; 
     margin-top: 30px;
     font-size: 20px;
 
