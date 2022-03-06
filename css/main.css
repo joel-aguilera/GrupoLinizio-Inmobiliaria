@@ -88,7 +88,7 @@ nav {
     background-color: red; }
   nav a {
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-style: italic; }
   nav form {
     display: flex;
@@ -111,8 +111,10 @@ main {
     margin-top: 8px;
     display: flex;
     justify-content: center;
-    color: white;
+    color: #fff;
     font-style: italic; }
+    main h2:hover {
+      color: red; }
   main .contenedor {
     margin-top: 20px;
     height: 52vh;
@@ -154,7 +156,7 @@ main {
     display: flex;
     justify-content: center;
     margin-left: 30vh;
-    color: white;
+    color: #fff;
     font-style: italic;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 40px; }
@@ -171,11 +173,11 @@ main {
   main p {
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #fff;
     margin-top: 30px;
     font-size: 20px; }
   main .formulario {
-    color: white;
+    color: #fff;
     font-style: italic;
     font-family: 'Roboto Condensed', sans-serif; }
   main .gridtabla {
@@ -197,7 +199,7 @@ aside {
   justify-content: center;
   align-items: center; }
   aside .publicidad {
-    color: white;
+    color: #fff;
     font-style: italic; }
 
 section {

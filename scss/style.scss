@@ -84,7 +84,7 @@ nav {
     }
     a {
         text-decoration: none;
-        color: white;
+        color: $blanco;
         font-style: italic;
     }
     form {
@@ -115,6 +115,10 @@ main {
         justify-content: center;
         color: $blanco;
         font-style: italic;
+
+        &:hover {
+            color: red;
+        }
     }
     .contenedor {
         margin-top: 20px;
@@ -198,7 +202,7 @@ p {
 
 }
 .formulario {
-    color: white;
+    color: $blanco;
     font-style: italic;
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -225,7 +229,7 @@ aside {
     justify-content: center;
     align-items: center;
     .publicidad {
-        color: white;
+        color: $blanco;
         font-style: italic;
     }
 }
