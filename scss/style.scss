@@ -1,29 +1,32 @@
 @import "header";
 @import "footer";
-//@import "paleta";
-$blanco: #fff; 
+@import "paleta";
+$blanco: #fff;
 $rojo: red;
-$negro: #000; 
-*{
+$negro: #000;
+
+* {
     margin: 0%;
     padding: 0%;
-    box-sizing:border-box;    
+    box-sizing: border-box;
 }
 
-#gridarea {
+#gridArea {
     background-color: $negro;
-    width: auto;
-    height: 100vh;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
     margin: 0% auto;
-    display: grid; 
-    grid-template-areas: 
-   "encabezado encabezado"
-   "menu menu"
-   "contenido publicidad"
-   "contenido publicidad"
-   "pie pie";
-    grid-template-columns: auto;
+    display: grid;
+    grid-template-areas:
+        "encabezado encabezado"
+        "menu menu"
+        "contenido contenido"
+        "contenido contenido"
+        "pie pie";
+    grid-template-columns: repeat(auto-fill, minmax (15rem, 1fr));
     grid-template-rows: 80px 27vh auto 200px auto auto;
+    grid-auto-flow: dense;
     justify-items: center;
     align-items: center;
 }
@@ -37,85 +40,107 @@ nav {
     background-image: url("../img/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+
     .redes {
         list-style-type: none;
         display: flex;
         justify-content: end;
         align-items: center;
-     li {
+
+        li {
             width: 4%;
         }
     }
+
     .facebook {
         color: blue;
         font-size: 40px;
     }
+
     .whatsapp {
         color: green;
         font-size: 40px;
     }
+
     .twitter {
         color: cornflowerblue;
         font-size: 40px;
     }
+
+    .instagram {
+        color: #990FBF;
+        font-size: 40px;
+    }
+
     .logo {
-       height: 10vh;
-       display: flex;
-       align-items: center;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+
         img {
-        width: 80px;
-        height: 80px;
-        margin-left: 16px;
+            width: 80px;
+            height: 80px;
+            margin-left: 16px;
+        }
+
     }
-    
-    }
+
     .navBarra {
-        text-align: center; 
+        text-align: center;
         list-style-type: none;
         font-size: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-    
+
+        li {
+            width: 16%;
+        }
+
+        li:hover {
+            background-color: $blanco;
+            border-radius: 5px;
+
+            a {
+                color: $negro;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: $blanco;
+            font-style: italic;
+        }
     }
-    li {
-        width: 16%;  
-    }
-    li:hover {
-       background-color: $blanco;
-       a { color: $negro;}
-    }
-    a {
-        text-decoration: none;
-        color: $blanco;
-        font-style: italic;
-    }
+
     form {
         display: flex;
         justify-content: end;
         align-items: center;
-        input { 
-            width: 90px;     
+
+        input {
+            width: 90px;
             height: 35px;
-            border-radius: 10px; 
-            }
-            input:focus {
-                width: 240px;
-                 }
+            border-radius: 10px;
+        }
+
+        input:focus {
+            width: 240px;
+        }
     }
-}  
+}
 
 main {
+    height: auto;
     grid-area: contenido;
-     /*height: 120vh;*/ 
-     .subtitle {
-        background-image: linear-gradient(to right, #f5f5f5, #000 );
-        padding-left: 240px;
-    }
-    h2 {
+    flex-wrap: wrap;
+
+    .subtitle {
+        background-image: linear-gradient(to right, #f5f5f5, #000);
         margin-top: 8px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         color: $blanco;
         font-style: italic;
@@ -124,28 +149,31 @@ main {
             color: $rojo;
         }
     }
-    .subtitle--margin {
-        margin-left: 30%;
-    }
+
     h4 {
         color: $blanco;
         text-align: center;
     }
-    
+
     .contenedor {
         margin-top: 20px;
-        min-height: calc (100- 100 - 300) ;
+        max-width: 100%;
+        min-height: calc (100- 100 - 300);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         justify-content: space-evenly;
+
         .caja {
             width: 400px;
-            transition: all 2s; 
+            transition: all 2s;
+
             img {
                 width: 100%;
                 height: auto;
+                border-radius: 5px;
             }
+
             .txt {
                 padding-left: 90px;
                 font-style: italic;
@@ -154,344 +182,387 @@ main {
             }
         }
     }
+
     .caja--sep {
         margin-top: 15px;
     }
-    .caja--margin {
-        margin-left: 100px;
+
+    .contenedorHistoria {
+        max-width: 100%;
+        width: 1903px;
+        margin-top: 20px;
+        min-height: calc (100- 100 - 300);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-content: space-evenly;
+
+        .cajaMargin {
+            width: 800px;
+
+
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .cajaHistoria {
+            width: 800px;
+            margin-left: 50px;
+        }
+
     }
-    
+
     .caja--scale:hover {
         transform: scale(1.1);
     }
-    .caja--animation {
-        animation-name: mi_animacion;
-        animation-timing-function: ease;
-        animation-iteration-count: initial;
-        animation-duration: 5s;
-        animation-delay: 2s;
+
+    .row {
+        .caja--animation {
+            animation-name: mi_animacion;
+            animation-timing-function: ease;
+            animation-iteration-count: initial;
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+
+        .caja--form {
+            padding-top: 30px;
+        }
     }
-    
+
+
     @keyframes mi_animacion {
         0% {
             transform: scale(0px, 0px);
             width: 0%;
         }
-    
-    
+
+
         100% {
             width: 42%;
             transform: scale(30px, 30px);
         }
     }
+
     .importante {
         display: flex;
         justify-content: center;
-        margin-left: 30vh;
         color: $blanco;
         font-style: italic;
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 40px;
+
         &:hover {
             color: $rojo;
         }
     }
-    .historia {
-        font-size: 40px;
-    }
-    
-.grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 80px 120px;
-    column-gap: 1rem;
-    row-gap: 1rem;
-    display: flex;
-    row-gap: nowrap;
-    div {
-        border: solid 1px tomato;
-    }
-    
-}
 
-p {
-    justify-content: center;
-    align-items: center;
-    color: $blanco; 
-    margin-top: 30px;
-    font-size: 20px;
-    display: inline-block;
-
-}
-.formulario {
-    color: $blanco;
-    font-style: italic;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-.gridtabla {
-    margin-top: 10px;
-    display: grid;
-    height: 300px;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 2fr);
-    row-gap: 10px;
-    column-gap: 5px;
-    div {
-        background-color: rgb(0, 162, 255);
-    }
-}
-}
-
-aside {
-    /*height: 5vh;*/
-    grid-area: publicidad;
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .publicidad {
+    p {
+        justify-content: center;
+        align-items: center;
         color: $blanco;
-        font-style: italic;
+        margin-top: 30px;
+        font-size: 20px;
+        display: inline-block;
+
     }
+
 }
 
-section {
-    grid-area: textos;
-    background-color: aquamarine;
-}
-
-/*Desktop*/ 
+/*Desktop*/
 @media screen and (max-width: 1200px) {
-    .facebook {
-        font-size: 30px;
-    }
-    .whatsapp {
-        font-size: 30px;
-    }
-    .twitter {
-        font-size: 30px;
-    }
-    .contenedor {
-        height: auto;
+    header {
+        padding-top: 50px;
+        text-align: center;
+
+        h1 {
+            font-size: 60px;
+        }
     }
 
-    .gridareaHeader {
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-size: 32px;
-    } 
-    .caja--translate:hover {
-        transform: scale(1.1);
+    nav {
+        .facebook {
+            font-size: 30px;
+        }
+
+        .whatsapp {
+            font-size: 30px;
+        }
+
+        .twitter {
+            font-size: 30px;
+        }
+
+        .instagram {
+            font-size: 30px;
+        }
     }
-    .caja--translater:hover {
-        transform: scale(1.1);
+
+    main {
+        width: 1200px;
+
+        .subtitle {
+            font-size: 50px;
+        }
+
+        .contenedor {
+            height: auto;
+
+            .caja {
+                margin-left: 1px;
+            }
+        }
+
+        .importante {
+            padding-left: 53px;
+        }
+
+        iframe {
+            width: 890px;
+        }
+
+        .row {
+            .caja--animation {
+                padding-top: 28px;
+                img {
+                    height: 255px;
+                }
+            }
+            .caja--form {
+                padding-right: 100px;
+            }
+        }
     }
-    .caja--scale:hover {
-        transform: scale(1.1);
+
+    footer {
+        p {
+            font-size: 30px;
+        }
     }
-    
+
 }
+
 /*Laptop*/
 @media screen and (max-width: 1024px) {
-    .gridareaHeader { 
-        font-size: 42px;
-        margin-top: 55px;
+    header {
+        margin-top: 30px;
         margin-bottom: 30px;
-     }
-    .facebook {
-        font-size: 30px;
-    }
-    .whatsapp {
-        font-size: 30px;
-    }
-    .twitter {
-        font-size: 30px;
-    }
-    .contenedor {
-        height: auto;
+
+        h1 {
+            font-size: 50px;
+        }
     }
 
-    .subtitle {
-        margin-right: 200px;
-    }
-    
-     .importante {
-       
-        margin-right: 200px;
-     }
+    main {
+        width: 1024px;
 
+        .subtitle {
+            padding-right: 20px;
+            font-size: 40px;
+        }
+
+        .importante {
+
+            margin-right: 90px;
+        }
+
+        iframe {
+            width: 740px;
+        }
+
+        .cajaHistoria {
+            margin-right: 50px;
+        }
     }
-  
+
+}
 
 /*Tablet*/
 @media screen and (max-width: 768px) {
-    .gridareaHeader {
+    #gridArea {
+        width: 100%;
+    }
+
+    header {
+
         margin-top: 10px;
-        margin-bottom: 42px;
-        font-size: 19px;
+        margin-bottom: 50px;
     }
- 
-    .redes li {
-        width: 8%;
-    }
-    .facebook {
-        font-size: 40px;
-    }
-    .whatsapp {
-        font-size: 40px;
-    }
-    .twitter {
-        font-size: 40px;
-    }
-    .navBarra {
-        flex-direction: column;
-    }
-    .contenedor {
-        height: auto;
-    }
-    
-    .subtitle {
-        margin-top: 45px;
-        margin-left: 50px;
-        margin-right: 140px;
-        font-size: 25px;
-     }
-     main p {
-         font-size: 30px;
-     }
-     .creditos {
-         font-size: 30px;
-     }
-   }
-/*Mobile*/ 
-@media screen and (max-width: 480px) {
-    #gridarea {
-        grid-template-columns: 1fr;
-         grid-template-rows: 1fr;
-    }
-    .gridareaHeader {
-            h1 {
-                font-size: 50px;
-            }
-            margin-top: 30px;
-            margin-bottom: 30px;
-           height: 40px;
-        }
-    
-    
-    
+
     nav {
-        .logo {
-            img {
-                height: auto;
-                width: 100px;
+        height: 86%;
+
+        .redes {
+            li {
+                width: 8%;
+            }
+
+        }
+
+        .facebook {
+            font-size: 40px;
+        }
+
+        .whatsapp {
+            font-size: 40px;
+        }
+
+        .twitter {
+            font-size: 40px;
+        }
+
+        .instagram {
+            font-size: 40px;
+        }
+
+        .navBarra {
+            li {
+                width: 22%;
             }
         }
+    }
+
+    main {
+        width: 768px;
+
+        .contenedor {
+            height: auto;
+        }
+
+        main p {
+            font-size: 30px;
+        }
+
+        .importante {
+            padding-left: 120px;
+        }
+        .row {
+            .caja--animation {
+                img {
+                    height: 255px;
+                }
+            }
+        }
+
+        iframe {
+            width: 536px;
+        }
+    }
+
+    footer {
+        .creditos {
+            font-size: 30px;
+        }
+    }
+
+}
+
+/*Mobile*/
+@media screen and (max-width: 480px) {
+    #gridArea {
+        width: 480px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    header {
+        padding: 0px;
+        margin: 0px;
+        height: 5%;
+
+    }
+
+    nav {
+
         .redes {
             display: flex;
             justify-content: end;
-            margin-right: 100px;
-            .facebook {
-                font-size: 50px;
-            }
-            .whatsapp {
-                font-size: 50px;
-            }
-            .twitter {
-                font-size: 50px;
-            }
+            margin-right: 10px;
+
             li {
-                width: 13%;
+                width: 14%;
             }
-          
+
         }
-        
+
+        .facebook {
+            font-size: 35px;
+        }
+
+        .whatsapp {
+            font-size: 35px;
+        }
+
+        .twitter {
+            font-size: 35px;
+        }
+
+        .instagram {
+            font-size: 35px;
+        }
+
         .navBarra {
+            flex-direction: column;
+            font-size: 20px;
+        }
+
+        form {
+            visibility: hidden;
+            margin-right: 20px;
+
+            input {
+                height: 50px;
+                width: 300px;
+            }
+        }
+
+    }
+
+    main {
+        width: 480px;
+
+        .subtitle {
+
             font-size: 30px;
         }
-            form {
-                margin-right: 20px;
-                input {
-                    height: 70px;
-                    width: 300px;
-                }
+
+        .txt {
+            font-size: 30px;
+        }
+
+        iframe {
+            width: 456px;
+        }
+
+      .row {
+          .caja--animation {
+              img {
+                  width: 456px;
+              }
+          }
+      }
+        @keyframes mi_animacion {
+            0% {
+                transform: scale(0px, 0px);
+                width: 0%;
             }
-    
-        }
-    
-    main {
-        .subtitle {
-            margin-top: 20px;
-            font-size: 40px;
-        }
-        .contenedor {
-        min-height: calc (100 - 100 - 300) ;
-        .caja {
-            .txt {
-                font-size: 30px;
+         
+               
+            100% {
+                width: 100%;
+                transform: scale(456px, 303px);
             }
         }
+
     }
-    h4 {
-        font-size: 30px;
-    }
-    .caja--animation {
-        margin-left: 46px;
-    }
-    iframe {
-        margin-left: 46px;
-    }
-    @keyframes mi_animacion {
-        0% {
-            transform: scale(0px, 0px);
-            width: 0%;
-        }
-    
-    
-        100% {
-            width: 100%;
-            transform: scale(30px, 30px);
-        }
-    }
-  }
-    
-    aside {
-    .publicidad {
-        font-size: 20px;
-    }
-   } 
+
     footer {
-    .creditos {
-        font-size: 30px;
+        .creditos {
+            font-size: 25px;
+        }
     }
-  }
-    
- }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

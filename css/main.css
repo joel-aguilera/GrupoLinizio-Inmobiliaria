@@ -1,5 +1,6 @@
 header {
   grid-area: encabezado;
+  flex-wrap: wrap;
   display: flex;
   align-items: center; }
   header h1 {
@@ -9,6 +10,7 @@ header {
 
 footer {
   grid-area: pie;
+  flex-wrap: wrap;
   background-color: red;
   width: 100%;
   height: 5vh;
@@ -27,15 +29,17 @@ footer {
   padding: 0%;
   box-sizing: border-box; }
 
-#gridarea {
+#gridArea {
   background-color: #000;
-  width: auto;
-  height: 100vh;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   margin: 0% auto;
   display: grid;
-  grid-template-areas: "encabezado encabezado" "menu menu" "contenido publicidad" "contenido publicidad" "pie pie";
-  grid-template-columns: auto;
+  grid-template-areas: "encabezado encabezado" "menu menu" "contenido contenido" "contenido contenido" "pie pie";
+  grid-template-columns: repeat(auto-fill, minmax 15rem, 1fr);
   grid-template-rows: 80px 27vh auto 200px auto auto;
+  grid-auto-flow: dense;
   justify-items: center;
   align-items: center; }
 
@@ -64,6 +68,9 @@ nav {
   nav .twitter {
     color: cornflowerblue;
     font-size: 40px; }
+  nav .instagram {
+    color: #990FBF;
+    font-size: 40px; }
   nav .logo {
     height: 10vh;
     display: flex;
@@ -80,16 +87,17 @@ nav {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap; }
-  nav li {
-    width: 16%; }
-  nav li:hover {
-    background-color: #fff; }
-    nav li:hover a {
-      color: #000; }
-  nav a {
-    text-decoration: none;
-    color: #fff;
-    font-style: italic; }
+    nav .navBarra li {
+      width: 16%; }
+    nav .navBarra li:hover {
+      background-color: #fff;
+      border-radius: 5px; }
+      nav .navBarra li:hover a {
+        color: #000; }
+    nav .navBarra a {
+      text-decoration: none;
+      color: #fff;
+      font-style: italic; }
   nav form {
     display: flex;
     justify-content: end;
@@ -102,26 +110,25 @@ nav {
       width: 240px; }
 
 main {
+  height: auto;
   grid-area: contenido;
-  /*height: 120vh;*/ }
+  flex-wrap: wrap; }
   main .subtitle {
     background-image: linear-gradient(to right, #f5f5f5, #000);
-    padding-left: 240px; }
-  main h2 {
     margin-top: 8px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     color: #fff;
     font-style: italic; }
-    main h2:hover {
+    main .subtitle:hover {
       color: red; }
-  main .subtitle--margin {
-    margin-left: 30%; }
   main h4 {
     color: #fff;
     text-align: center; }
   main .contenedor {
     margin-top: 20px;
+    max-width: 100%;
     min-height: calc -300;
     display: flex;
     flex-wrap: wrap;
@@ -132,7 +139,8 @@ main {
       transition: all 2s; }
       main .contenedor .caja img {
         width: 100%;
-        height: auto; }
+        height: auto;
+        border-radius: 5px; }
       main .contenedor .caja .txt {
         padding-left: 90px;
         font-style: italic;
@@ -140,16 +148,33 @@ main {
         font-size: 20px; }
   main .caja--sep {
     margin-top: 15px; }
-  main .caja--margin {
-    margin-left: 100px; }
+  main .contenedorHistoria {
+    max-width: 100%;
+    width: 1903px;
+    margin-top: 20px;
+    min-height: calc -300;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly; }
+    main .contenedorHistoria .cajaMargin {
+      width: 800px; }
+      main .contenedorHistoria .cajaMargin img {
+        width: 100%;
+        height: auto; }
+    main .contenedorHistoria .cajaHistoria {
+      width: 800px;
+      margin-left: 50px; }
   main .caja--scale:hover {
     transform: scale(1.1); }
-  main .caja--animation {
+  main .row .caja--animation {
     animation-name: mi_animacion;
     animation-timing-function: ease;
     animation-iteration-count: initial;
     animation-duration: 5s;
     animation-delay: 2s; }
+  main .row .caja--form {
+    padding-top: 30px; }
 
 @keyframes mi_animacion {
   0% {
@@ -161,25 +186,12 @@ main {
   main .importante {
     display: flex;
     justify-content: center;
-    margin-left: 30vh;
     color: #fff;
     font-style: italic;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 40px; }
     main .importante:hover {
       color: red; }
-  main .historia {
-    font-size: 40px; }
-  main .grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 80px 120px;
-    column-gap: 1rem;
-    row-gap: 1rem;
-    display: flex;
-    row-gap: nowrap; }
-    main .grid div {
-      border: solid 1px tomato; }
   main p {
     justify-content: center;
     align-items: center;
@@ -187,159 +199,147 @@ main {
     margin-top: 30px;
     font-size: 20px;
     display: inline-block; }
-  main .formulario {
-    color: #fff;
-    font-style: italic;
-    font-family: 'Roboto Condensed', sans-serif; }
-  main .gridtabla {
-    margin-top: 10px;
-    display: grid;
-    height: 300px;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 2fr);
-    row-gap: 10px;
-    column-gap: 5px; }
-    main .gridtabla div {
-      background-color: #00a2ff; }
-
-aside {
-  /*height: 5vh;*/
-  grid-area: publicidad;
-  background-color: blue;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  aside .publicidad {
-    color: #fff;
-    font-style: italic; }
-
-section {
-  grid-area: textos;
-  background-color: aquamarine; }
 
 /*Desktop*/
 @media screen and (max-width: 1200px) {
-  .facebook {
+  header {
+    padding-top: 50px;
+    text-align: center; }
+    header h1 {
+      font-size: 60px; }
+  nav .facebook {
     font-size: 30px; }
-  .whatsapp {
+  nav .whatsapp {
     font-size: 30px; }
-  .twitter {
+  nav .twitter {
     font-size: 30px; }
-  .contenedor {
-    height: auto; }
-  .gridareaHeader {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 32px; }
-  .caja--translate:hover {
-    transform: scale(1.1); }
-  .caja--translater:hover {
-    transform: scale(1.1); }
-  .caja--scale:hover {
-    transform: scale(1.1); } }
+  nav .instagram {
+    font-size: 30px; }
+  main {
+    width: 1200px; }
+    main .subtitle {
+      font-size: 50px; }
+    main .contenedor {
+      height: auto; }
+      main .contenedor .caja {
+        margin-left: 1px; }
+    main .importante {
+      padding-left: 53px; }
+    main iframe {
+      width: 890px; }
+    main .row .caja--animation {
+      padding-top: 28px; }
+      main .row .caja--animation img {
+        height: 255px; }
+    main .row .caja--form {
+      padding-right: 100px; }
+  footer p {
+    font-size: 30px; } }
 
 /*Laptop*/
 @media screen and (max-width: 1024px) {
-  .gridareaHeader {
-    font-size: 42px;
-    margin-top: 55px;
+  header {
+    margin-top: 30px;
     margin-bottom: 30px; }
-  .facebook {
-    font-size: 30px; }
-  .whatsapp {
-    font-size: 30px; }
-  .twitter {
-    font-size: 30px; }
-  .contenedor {
-    height: auto; }
-  .subtitle {
-    margin-right: 200px; }
-  .importante {
-    margin-right: 200px; } }
+    header h1 {
+      font-size: 50px; }
+  main {
+    width: 1024px; }
+    main .subtitle {
+      padding-right: 20px;
+      font-size: 40px; }
+    main .importante {
+      margin-right: 90px; }
+    main iframe {
+      width: 740px; }
+    main .cajaHistoria {
+      margin-right: 50px; } }
 
 /*Tablet*/
 @media screen and (max-width: 768px) {
-  .gridareaHeader {
+  #gridArea {
+    width: 100%; }
+  header {
     margin-top: 10px;
-    margin-bottom: 42px;
-    font-size: 19px; }
-  .redes li {
-    width: 8%; }
-  .facebook {
-    font-size: 40px; }
-  .whatsapp {
-    font-size: 40px; }
-  .twitter {
-    font-size: 40px; }
-  .navBarra {
-    flex-direction: column; }
-  .contenedor {
-    height: auto; }
-  .subtitle {
-    margin-top: 45px;
-    margin-left: 50px;
-    margin-right: 140px;
-    font-size: 25px; }
-  main p {
-    font-size: 30px; }
-  .creditos {
+    margin-bottom: 50px; }
+  nav {
+    height: 86%; }
+    nav .redes li {
+      width: 8%; }
+    nav .facebook {
+      font-size: 40px; }
+    nav .whatsapp {
+      font-size: 40px; }
+    nav .twitter {
+      font-size: 40px; }
+    nav .instagram {
+      font-size: 40px; }
+    nav .navBarra li {
+      width: 22%; }
+  main {
+    width: 768px; }
+    main .contenedor {
+      height: auto; }
+    main main p {
+      font-size: 30px; }
+    main .importante {
+      padding-left: 120px; }
+    main .row .caja--animation img {
+      height: 255px; }
+    main iframe {
+      width: 536px; }
+  footer .creditos {
     font-size: 30px; } }
 
 /*Mobile*/
 @media screen and (max-width: 480px) {
-  #gridarea {
+  #gridArea {
+    width: 480px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr; }
-  .gridareaHeader {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    height: 40px; }
-    .gridareaHeader h1 {
-      font-size: 50px; }
-  nav .logo img {
-    height: auto;
-    width: 100px; }
+  header {
+    padding: 0px;
+    margin: 0px;
+    height: 5%; }
   nav .redes {
     display: flex;
     justify-content: end;
-    margin-right: 100px; }
-    nav .redes .facebook {
-      font-size: 50px; }
-    nav .redes .whatsapp {
-      font-size: 50px; }
-    nav .redes .twitter {
-      font-size: 50px; }
+    margin-right: 10px; }
     nav .redes li {
-      width: 13%; }
+      width: 14%; }
+  nav .facebook {
+    font-size: 35px; }
+  nav .whatsapp {
+    font-size: 35px; }
+  nav .twitter {
+    font-size: 35px; }
+  nav .instagram {
+    font-size: 35px; }
   nav .navBarra {
-    font-size: 30px; }
+    flex-direction: column;
+    font-size: 20px; }
   nav form {
+    visibility: hidden;
     margin-right: 20px; }
     nav form input {
-      height: 70px;
+      height: 50px;
       width: 300px; }
-  main .subtitle {
-    margin-top: 20px;
-    font-size: 40px; }
-  main .contenedor {
-    min-height: calc -300; }
-    main .contenedor .caja .txt {
+  main {
+    width: 480px; }
+    main .subtitle {
       font-size: 30px; }
-  main h4 {
-    font-size: 30px; }
-  main .caja--animation {
-    margin-left: 46px; }
-  main iframe {
-    margin-left: 46px; }
+    main .txt {
+      font-size: 30px; }
+    main iframe {
+      width: 456px; }
+    main .row .caja--animation img {
+      width: 456px; }
   @keyframes mi_animacion {
     0% {
       transform: scale(0px, 0px);
       width: 0%; }
     100% {
       width: 100%;
-      transform: scale(30px, 30px); } }
-  aside .publicidad {
-    font-size: 20px; }
+      transform: scale(456px, 303px); } }
   footer .creditos {
-    font-size: 30px; } }
+    font-size: 25px; } }
