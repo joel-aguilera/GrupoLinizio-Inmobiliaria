@@ -1,0 +1,11 @@
+header { 
+    grid-area: encabezado;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    h1 {
+        color: white;
+        font-style: italic;
+        font-weight: bold; 
+    }
+}
